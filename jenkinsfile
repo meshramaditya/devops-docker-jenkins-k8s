@@ -6,6 +6,7 @@ pipeline {
         IMAGE_TAG =  "v1"
         HOST_PORT = "8081"
         DOCKER_CREDS = credentials('dockerhub-creds')
+        KUBECONFIG = "C:\\Users\\Dell\\.kube\\config"
     }
 
     stages {
@@ -34,11 +35,11 @@ pipeline {
             }
         }
         stage('Debug Kubernetes') {
-            steps {
+             steps {
                 bat '''
-                whoami
+                echo %KUBECONFIG%
                 kubectl config current-context
-                kubectl config view
+                kubectl get nodes
                 '''
             }
         }
