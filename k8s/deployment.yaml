@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: myapp
+  namespace: devops
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: myapp
+
+  strategy:
+    type: RollingUpdate
+
+  template:
+    metadata:
+      labels:
+        app: myapp
+
+    spec:
+      containers:
+
+      - name: myapp
+
+        image: adityameshram/myapp:v1
+
+        imagePullPolicy: IfNotPresent
+
+        ports:
+        - containerPort: 80
