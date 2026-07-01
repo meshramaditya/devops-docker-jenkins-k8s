@@ -35,10 +35,12 @@ pipeline {
             }
         }
 
-        stage('Load Image to Minikube') {
+        stage('Debug Minikube') {
             steps {
                 bat '''
-                minikube image load %IMAGE_NAME%:%IMAGE_TAG%
+                whoami
+                echo USERPROFILE=%USERPROFILE%
+                minikube profile list
                 '''
             }
         }
