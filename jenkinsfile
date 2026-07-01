@@ -33,6 +33,15 @@ pipeline {
                 bat "docker push %IMAGE_NAME%:%IMAGE_TAG%"
             }
         }
+        stage('Debug Kubernetes') {
+            steps {
+                bat '''
+                whoami
+                kubectl config current-context
+                kubectl config view
+                '''
+            }
+        }
 
         stage('Deploy to Kubernetes') {
             steps {
