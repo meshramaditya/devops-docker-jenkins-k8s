@@ -34,31 +34,35 @@ pipeline {
             }
         }
 
-        stage('Update Kubernetes Manifest') {
+        stage('Deploy to Kubernetes') {
             steps {
-                bat '''
-                powershell -Command ^
-                "(Get-Content k8s\\deployment.yaml) ^
-                -replace 'IMAGE_TAG', '%IMAGE_TAG%' ^
-                | Set-Content k8s\\deployment.yaml"
-                '''
+                 bat '''
+                 kubectl apply -f k8s/namespace.yaml
+                 kubectl apply -f k8s/deployment.yaml
+                 kubectl apply -f k8s/service.yaml
+                 '''
+                
             }
         }
 
-        stage('Deploy to Kubernetes') {
+        stage('Rolling Update') {
             steps {
-                bat "kubectl apply -f k8s/"
+                bat '''
+                kubectl set image deployment/myapp myapp=%IMAGE_NAME%:%IMAGE_TAG% -n devops
+                '''
             }
         }
 
         stage('Verify Deployment') {
             steps {
-                bat "kubectl rollout status deployment/myapp"
-                bat "kubectl get pods"
-                bat "kubectl get deployments"
-                bat "kubectl get svc"
+                bat "kubectl rollout status deployment/myapp -n devops"
+                bat "kubectl get pods -n devops"
+                bat "kubectl get deployments -n devops"
+                bat "kubectl get svc -n devops"
             }
         }
+
+
     }
 
     post {
