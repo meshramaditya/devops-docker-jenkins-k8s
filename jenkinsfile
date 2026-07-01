@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "adityameshram/myapp"
-        IMAGE_TAG =  "v1"
+        IMAGE_TAG = "${env.BUILD_NUMBER}"
         HOST_PORT = "8081"
         DOCKER_CREDS = credentials('dockerhub-creds')
         KUBECONFIG = "C:\\Users\\Dell\\.kube\\config"
@@ -59,6 +59,7 @@ pipeline {
             steps {
                 bat '''
                 kubectl set image deployment/myapp myapp=%IMAGE_NAME%:%IMAGE_TAG% -n devops
+                kubectl rollout status deployment/myapp -n devops
                 '''
             }
         }

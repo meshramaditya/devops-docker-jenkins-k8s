@@ -27,7 +27,7 @@ spec:
 
         image: adityameshram/myapp:v1
 
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: always
 
         ports:
         - containerPort: 80
