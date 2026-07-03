@@ -321,6 +321,7 @@ Continuous Deployment/Delivery (CD) automatically deploys the validated applicat
 - Why not build images directly on production servers?
 
 -Building images on production servers consumes resources, increases security risks, and creates inconsistent deployment processes. Images should be built once in CI and deployed everywhere.
+
 ---
 
 ## Kubernetes Installation
