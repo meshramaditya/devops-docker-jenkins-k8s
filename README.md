@@ -210,15 +210,15 @@ Included screenshots:
 ## Docker Operations
 
 - Difference between Image and Container?
-
 -A Docker Image is a static template used to create containers, while a Container is the running instance of that image.
 
 - Difference between docker stop and docker rm?
 
 -docker stop gracefully stops a running container but keeps it available for restarting.
--docker rm permanently removes a stopped container from the system.
+docker rm permanently removes a stopped container from the system.
 
 - Where are container logs stored?
+
 -Container logs are stored by Docker under the Docker data directory (for example, /var/lib/docker/containers/ on Linux). They can be viewed using:  docker logs <container-name>
 
 ---
@@ -226,9 +226,11 @@ Included screenshots:
 ## Docker Volumes
 
 - Why are volumes needed?
+
 -Volumes provide persistent storage for containers, allowing data to remain available even if a container is stopped, removed, or recreated.
 
 - What happens without volumes?
+
 -Without volumes, any data written inside the container is lost when the container is deleted.
 
 - Difference between Volume and Bind Mount?
@@ -244,6 +246,7 @@ Included screenshots:
 ## Docker Networking
 
 - Why use custom networks?
+
 -Custom Docker networks allow secure communication between containers using container names instead of IP addresses. They also isolate application traffic from other containers.
 
 - Difference between bridge and host network?
@@ -261,6 +264,7 @@ No network isolation
 Higher performance but less secure
 
 - How do containers communicate?
+
 -Containers connected to the same Docker network communicate using their container names through Docker's built-in DNS service.
 
 ---
@@ -268,12 +272,15 @@ Higher performance but less secure
 ## Jenkins Installation
 
 - What is Jenkins?
+
 -Jenkins is an open-source automation server used to build, test, and deploy applications automatically as part of a CI/CD pipeline.
 
 - What problem does Jenkins solve?
+
 -Jenkins eliminates manual build and deployment processes by automating repetitive tasks, improving consistency, reducing human errors, and enabling faster software delivery.
 
 - Difference between CI and CD?
+
 -Continuous Integration (CI) automatically builds and tests code whenever changes are committed.
 Continuous Deployment/Delivery (CD) automatically deploys the validated application to staging or production environments.
 
@@ -282,9 +289,11 @@ Continuous Deployment/Delivery (CD) automatically deploys the validated applicat
 ## Jenkins Pipeline
 
 - What is a Jenkins Pipeline?
+
 -A Jenkins Pipeline is a sequence of automated stages that define the application's build, test, and deployment workflow as code.
 
 - Why use pipelines instead of manual deployments?
+
 -Pipelines automate repetitive tasks, ensure consistent deployments, reduce human errors, and provide faster software delivery.
 
 - Difference between Freestyle and Pipeline jobs?
@@ -301,25 +310,31 @@ Continuous Deployment/Delivery (CD) automatically deploys the validated applicat
 ## Container Registry or Docker Hub
 
 - Why use a registry?
+
 -A container registry stores Docker images centrally, allowing them to be shared, versioned, and deployed across different environments.
 
 - Difference between local image and registry image?
+
 -A local image exists only on the local machine.
   A registry image is stored in a remote repository such as Docker Hub and can be pulled from anywhere.
 
 - Why not build images directly on production servers?
+
 -Building images on production servers consumes resources, increases security risks, and creates inconsistent deployment processes. Images should be built once in CI and deployed everywhere.
 ---
 
 ## Kubernetes Installation
 
 - What is Kubernetes?
+
 -Kubernetes is an open-source container orchestration platform that automates deployment, scaling, networking, and management of containerized applications.
 
 - Why not run containers directly?
+
 -Running containers directly lacks automatic scaling, self-healing, load balancing, service discovery, and rolling update capabilities.
 
 - What problems does Kubernetes solve?
+
 -Kubernetes provides:
 
 Automated deployment
@@ -335,12 +350,15 @@ Service discovery
 ## Pods
 
 - What is a Pod?
+
 -A Pod is the smallest deployable unit in Kubernetes that contains one or more tightly coupled containers sharing the same network and storage.
 
 - Why doesn't Kubernetes deploy containers directly?
+
 -Kubernetes manages Pods instead of individual containers because Pods provide networking, storage, and lifecycle management.
 
 - Can a Pod contain multiple containers?
+
 -Yes. Multiple containers within a Pod share the same IP address, network namespace, and storage volumes.
 
 ---
@@ -348,22 +366,27 @@ Service discovery
 ## Deployments
 
 - Why did the Pod return automatically?
+
 -The Deployment continuously monitors the desired number of replicas. When a Pod is deleted, Kubernetes automatically creates a new Pod to maintain the desired state.
 
 - Difference between Pod and Deployment?
+
 -A Pod runs the application.
   A Deployment manages Pods, handles updates, scaling, rollbacks, and self-healing.
 
 - What is desired state?
+
 -Desired state is the target configuration defined by the user, such as maintaining three running replicas. Kubernetes continuously works to achieve and maintain that state.
 ---
 
 ## Services
 
 - Why do Pods need Services?
+
 -Pod IP addresses are temporary and change when Pods are recreated. Services provide a stable endpoint for accessing Pods.
 
 - Difference between ClusterIP and NodePort?
+
 -ClusterIP:
 
 Accessible only within the cluster.
@@ -374,6 +397,7 @@ NodePort:
 Exposes the application externally using a port on each Kubernetes node.
 
 - What happens when Pod IP changes?
+
 -The Service automatically routes traffic to the new Pod without requiring any client-side changes.
 
 ---
@@ -381,12 +405,15 @@ Exposes the application externally using a port on each Kubernetes node.
 ## Rolling Updates
 
 - What is a rolling update?
+
 -A rolling update gradually replaces old Pods with new Pods while keeping the application available.
 
 - Why is a rolling update safer?
+
 -It updates only a few Pods at a time, reducing deployment risks and allowing quick rollback if issues occur.
 
 - What is zero downtime deployment?
+
 -A zero downtime deployment ensures the application remains available to users while new application versions are being deployed.
 
 ---
@@ -394,9 +421,11 @@ Exposes the application externally using a port on each Kubernetes node.
 ## Rollback
 
 - Why are rollbacks important?
+
 -Rollbacks allow quick restoration of the previous stable application version if a deployment fails.
 
 - How does Kubernetes maintain availability?
+
 -Kubernetes performs rolling updates, continuously monitors Pod health, recreates failed Pods, and supports rollbacks to minimize downtime.
 
 ---
@@ -404,57 +433,60 @@ Exposes the application externally using a port on each Kubernetes node.
 ## Jenkins + Kubernetes Integration
 
 - How does Jenkins communicate with Kubernetes?
+
 -Jenkins uses the kubectl CLI (configured with the Kubernetes kubeconfig) to apply manifests, update deployments, and monitor rollout status.
 
 - Why automate deployments?
+
 -Automation ensures faster, repeatable, and error-free deployments while reducing manual intervention.
 
 - What risks exist in manual deployments?
+
 -Manual deployments can lead to configuration errors, inconsistent environments, downtime, missed steps, slower releases, and increased operational risk.
 
 ---
 
 # Troubleshooting Challenges
 
-Challenge 1: Container exits immediately.
+- Challenge 1: Container exits immediately.
 
 Root Cause: The main application process terminates, causing the container to stop.
 
 Solution: Verify the container's startup command, application configuration, and logs using docker logs.
 
 
-Challenge 2: Application works locally but not inside Kubernetes.
+- Challenge 2: Application works locally but not inside Kubernetes.
 
 Root Cause: Incorrect image, port mismatch, missing Service, or networking configuration.
 
 Solution: Check Pod logs, Deployment, Service, container ports, and Kubernetes events.
 
 
-Challenge 3: Service exists but application is inaccessible.
+- Challenge 3: Service exists but application is inaccessible.
 
 Root Cause: Incorrect selector, wrong NodePort, application not listening on the expected port, or firewall restrictions.
 
 Solution: Verify the Service selector, target port, NodePort, and Pod status.
 
 
-Challenge 4: ImagePullBackOff occurs.
+- Challenge 4: ImagePullBackOff occurs.
 
 Root Cause: Incorrect image name or tag, private registry authentication issue, or cluster network connectivity problem.
 
 Solution: Verify the image name and tag, ensure the registry is accessible, configure image pull secrets if needed, or preload the image into Minikube if network access is unavailable.
 
-Challenge 5: Delete a Pod manually. Why does the application remain available?
+- Challenge 5: Delete a Pod manually. Why does the application remain available?
 
 The Deployment and ReplicaSet automatically create a replacement Pod to maintain the desired number of replicas, ensuring application availability.
 
-Challenge 6: Pipeline fails during Docker build.
+- Challenge 6: Pipeline fails during Docker build.
 
 Root Cause: Dockerfile errors, missing files, invalid build context, or Docker daemon issues.
 
 Solution: Review the Jenkins console output, validate the Dockerfile, and rebuild locally to identify the error.
 
 
-Challenge 7: Deployment succeeds but users still see the old version.
+- Challenge 7: Deployment succeeds but users still see the old version.
 
 Root Cause: Browser cache, Image tag reused without updating, imagePullPolicy not set appropriately, Kubernetes did not detect an image change, Rollout not completed successfully
 
@@ -479,40 +511,6 @@ Result
 (Rolling Update)
 
 Result
-
----
-
-# Implementation Screenshots
-
-GitHub Repository
-
-Jenkins Dashboard
-
-Docker Images
-
-Docker Containers
-
-Docker Hub
-
-Kubernetes Pods
-
-Deployment
-
-Service
-
-NodePort
-
-Rolling Update
-
-Rollback
-
-Delete Pod
-
-New Pod Created
-
-Docker Volume
-
-Docker Network
 
 ---
 
