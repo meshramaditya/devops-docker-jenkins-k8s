@@ -183,7 +183,8 @@ Included screenshots:
 ## Docker Fundamentals
 
 - What problem does Docker solve?
-Docker solves the "works on my machine" problem by packaging an application along with all its dependencies into a container. This ensures the application runs consistently across development, testing, and production environments.
+
+-Docker solves the "works on my machine" problem by packaging an application along with all its dependencies into a container. This ensures the application runs consistently across development, testing, and production environments.
 
 - Difference between VM and Container?
   | Virtual Machine                        | Container                               |
