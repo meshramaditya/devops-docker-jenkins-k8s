@@ -123,25 +123,56 @@ Users
 
 # 📷 Project Screenshots
 
-The complete project screenshots are available in the **screenshots/** directory.
-
 Included screenshots:
 
 - GitHub Repository
+  <img width="1918" height="1015" alt="Screenshot 2026-07-02 024305" src="https://github.com/user-attachments/assets/a0935997-d396-4f2f-a5bc-b36d6a461971" />
+
 - Jenkins Dashboard
+  <img width="1919" height="1011" alt="Screenshot 2026-07-02 024740" src="https://github.com/user-attachments/assets/e4f318b1-b146-49b5-b1aa-a28b5be0438f" />
+
 - Successful Pipeline
+  <img width="1916" height="995" alt="Screenshot 2026-07-02 024524" src="https://github.com/user-attachments/assets/1d4675a1-1f69-4065-b16f-243c3f3f72e1" />
+
 - Docker Images
+  <img width="1919" height="1019" alt="Screenshot 2026-07-02 025005" src="https://github.com/user-attachments/assets/0b0c5a72-8582-4128-92ae-37165d7022ce" />
+
 - Docker Containers
+  <img width="1919" height="1009" alt="Screenshot 2026-07-02 025358" src="https://github.com/user-attachments/assets/cc7f33fc-197c-45d7-af98-edbe59dde6f8" />
+
 - Docker Hub Repository
+  <img width="1918" height="1005" alt="Screenshot 2026-07-02 025542" src="https://github.com/user-attachments/assets/336abf8d-c2cd-48ca-af61-93eab19d4bf2" />
+
 - Kubernetes Pods
+  <img width="1919" height="1012" alt="Screenshot 2026-07-02 025734" src="https://github.com/user-attachments/assets/d68dc5bb-0685-48ba-811d-d973233ae32f" />
+
 - Deployments
+  <img width="1907" height="1010" alt="Screenshot 2026-07-02 025813" src="https://github.com/user-attachments/assets/6c5b4b6c-6695-4d36-8ccf-e09136217429" />
+
 - Services
+  <img width="1919" height="1015" alt="Screenshot 2026-07-02 025844" src="https://github.com/user-attachments/assets/13f9d2c0-5447-471e-a0a5-cdd6150daf82" />
+
 - NodePort Access
+  <img width="1919" height="1017" alt="Screenshot 2026-07-02 030630" src="https://github.com/user-attachments/assets/0aca1bf3-3938-45da-badb-d38f7442c992" />
+
+  <img width="1919" height="1013" alt="Screenshot 2026-07-02 025922" src="https://github.com/user-attachments/assets/0c0e021f-a1fe-467c-a85b-89fd1d30dce4" />
+
+
 - Rolling Update
+  <img width="1919" height="1009" alt="Screenshot 2026-07-02 015954" src="https://github.com/user-attachments/assets/95ce310d-863d-47c2-922e-a7d1899efcd0" />
+
 - Rollback
+  <img width="1916" height="1010" alt="Screenshot 2026-07-02 015841" src="https://github.com/user-attachments/assets/b3a9d5c2-efba-4519-82f1-ee436981c724" />
+
 - Pod Self-Healing
+ <img width="1919" height="1017" alt="Screenshot 2026-07-02 030342" src="https://github.com/user-attachments/assets/8fdc2433-ff3e-40ee-8c72-bd87707f5d79" />
+
 - Docker Volume
+  <img width="1919" height="1017" alt="Screenshot 2026-07-02 030538" src="https://github.com/user-attachments/assets/70a7a6bd-354c-49f3-8693-309bd0c90575" />
+
 - Docker Network
+  <img width="1919" height="1013" alt="Screenshot 2026-07-02 022603" src="https://github.com/user-attachments/assets/e79261ff-1f4e-4a88-854c-11f782830287" />
+
 
 ---
 # Questions & Answers
@@ -152,7 +183,7 @@ Included screenshots:
 ## Docker Fundamentals
 
 - What problem does Docker solve?
-  Docker solves the "works on my machine" problem by packaging an application along with all its dependencies into a container. This ensures the application runs consistently across development, testing, and production environments.
+Docker solves the "works on my machine" problem by packaging an application along with all its dependencies into a container. This ensures the application runs consistently across development, testing, and production environments.
 
 - Difference between VM and Container?
   | Virtual Machine                        | Container                               |
